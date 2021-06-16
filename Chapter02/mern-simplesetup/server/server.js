@@ -13,10 +13,12 @@ const CURRENT_WORKING_DIR = process.cwd()
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 //so this is adding a get handler at the root path. 
 //the second argument is a function that takes a request and a response as args, sets the response status to 200, and sents the template.
+//then the template.js file calls the bundle.js file that is in /dist
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
 
+//this configures the app to listen for requests on port 3000 and catches errors
 let port = process.env.PORT || 3000
 app.listen(port, function onStart(err) {
   if (err) {
