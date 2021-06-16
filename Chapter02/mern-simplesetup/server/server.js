@@ -8,10 +8,11 @@ import devBundle from './devBundle'
 const app = express()
 //comment out before building for production
 devBundle.compile(app)
-
+//this sets the /dist folder as where the browser goes to find static resources (imgs etc?)
 const CURRENT_WORKING_DIR = process.cwd()
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
-
+//so this is adding a get handler at the root path. 
+//the second argument is a function that takes a request and a response as args, sets the response status to 200, and sents the template.
 app.get('/', (req, res) => {
   res.status(200).send(template())
 })
