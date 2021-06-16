@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader'
 const HelloWorld = () => {
     return (
         <div>
-          <h1>hello</h1>
+          <h1>hello, homes</h1>
         </div>
       )
 }
