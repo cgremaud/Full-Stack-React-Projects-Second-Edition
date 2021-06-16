@@ -12,5 +12,6 @@ export default () => {
       </html>`
 }
 
-//so line 10 above is how the whole react chain gets initialized. And the webpackconfig is how the server knows to send bundle.js to the /dist dir?
+//so line 10 above is how the whole react chain gets initialized. and because we told webpack to send bundle.js to /dist, it will be there
+//bundle.js is the transpiled code from main.js. 
 

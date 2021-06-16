@@ -8,10 +8,11 @@ import devBundle from './devBundle'
 const app = express()
 //comment out before building for production
 devBundle.compile(app)
-//this sets the /dist folder as where the browser goes to find static resources (imgs etc?)
+//I think process is a global var that stores infor about the running node process (such as cwd)
 const CURRENT_WORKING_DIR = process.cwd()
+//webpack is putting the files in /dist, and this tells the server to look there for static resources
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
-//so this is adding a get handler at the root path. 
+//then this adds a get handler at the root path. 
 //the second argument is a function that takes a request and a response as args, sets the response status to 200, and sents the template.
 //then the template.js file calls the bundle.js file that is in /dist
 app.get('/', (req, res) => {
